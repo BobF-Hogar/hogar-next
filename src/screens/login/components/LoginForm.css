@@ -1,0 +1,36 @@
+#login-form {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    max-width: calc(100% - 80px);
+    padding: 20px;
+    width: 360px;
+}
+
+#login-form .form-row {
+    align-items: center;
+    display: flex;
+    gap: 8px;
+    width: 100%;
+}
+
+#login-form .form-row > *:first-child {
+    min-width: 40px;
+    text-align: right;
+    width: 25%;
+}
+
+#login-form .form-row > *:last-child {
+    flex-grow: 1;
+}
+
+#login-form .checkbox-row {
+    align-items: center;
+    display: flex;
+    font-size: 0.75em;
+    gap: 8px;
+    left: max(calc(10px + 25%), 50px);
+    position: relative;
+    width: 100%;
+}
