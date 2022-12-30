@@ -18,10 +18,14 @@ function sendRequest(method, url, data, token, apiKey, timeout, trusty = true) {
     }
 
     // TODO - What does trusty do?
-    const req = fetch(url, {
-        method,
-        headers,
-        body: JSON.stringify(data)
+    // const req = fetch(url, {
+    //     method,
+    //     headers,
+    //     body: JSON.stringify(data)
+    // });
+    // TODO - Dummy test call!
+    const req = new Promise((res) => {
+        setTimeout(res, 1000, { ok: false });
     });
 
     return new Promise((res) => {

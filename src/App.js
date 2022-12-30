@@ -1,7 +1,7 @@
 import React from "react";
 import "./App.css";
 
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { createHashRouter, RouterProvider } from "react-router-dom";
 import { checkLogin } from "./util/auth";
 import store from "./redux/store";
 import { Provider } from "react-redux";
@@ -9,7 +9,7 @@ import { Provider } from "react-redux";
 import Login from "./screens/login/Login";
 import Dashboard from "./screens/dashboard/Dashboard";
 
-const router = createBrowserRouter([
+const router = createHashRouter([
   {
     path: "/",
     element: <Dashboard />,
