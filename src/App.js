@@ -1,15 +1,16 @@
 import React from "react";
 import "./App.css";
 
-import { createHashRouter, RouterProvider } from "react-router-dom";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { checkLogin } from "./util/auth";
 import store from "./redux/store";
 import { Provider } from "react-redux";
 
 import Login from "./screens/login/Login";
 import Dashboard from "./screens/dashboard/Dashboard";
+import { detectEnvironment } from "./util";
 
-const router = createHashRouter([
+const router = createBrowserRouter([
   {
     path: "/",
     element: <Dashboard />,
@@ -19,7 +20,10 @@ const router = createHashRouter([
     path: "/login",
     element: <Login />,
   }
-]);
+],
+{
+  basename: (detectEnvironment() === "staging") ? "/router-next" : "",
+});
 
 function App() {
   return (

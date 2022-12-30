@@ -6,6 +6,7 @@ h1, h2, h3, h4, h5, ol, ul {
 #root {
   background-color: black;
   bottom: 0;
+  color: white;
   left: 0;
   position: fixed;
   right: 0;
