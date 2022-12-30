@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/hogar-next/static/css/main.72e9e02e.css",
+    "main.js": "/hogar-next/static/js/main.3551e1a8.js",
+    "service-worker.js": "/hogar-next/service-worker.js",
+    "index.html": "/hogar-next/index.html",
+    "main.72e9e02e.css.map": "/hogar-next/static/css/main.72e9e02e.css.map",
+    "main.3551e1a8.js.map": "/hogar-next/static/js/main.3551e1a8.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.72e9e02e.css",
+    "static/js/main.3551e1a8.js"
+  ]
+}
