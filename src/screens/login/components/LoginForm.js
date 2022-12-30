@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import localize from "../../../localization";
 
+import { loginAction } from "../../../redux/authSlice";
+import sagas from "../../../redux/sagas";
+
 import ThemePanel from "../../../ui/ThemePanel";
 import ThemeInput from "../../../ui/ThemeInput";
 import ThemeCheckbox from "../../../ui/ThemeCheckbox";
@@ -29,6 +32,11 @@ function LoginForm() {
         setFormData(newFormData);
     }
 
+    const doLogin = () => {
+        console.log("Login", formData);
+        sagas.sagaLoginAction(loginAction(formData));
+    }
+
     return <ThemePanel id="login-form">
         <div className="checkbox-row">
             <ThemeCheckbox defaultValue={loginMode === "email"} onChange={toggleLoginMode} />
@@ -50,7 +58,7 @@ function LoginForm() {
             <ThemeCheckbox />
             {localize("LABEL_REMEMBER_ME")}
         </div>
-        <ThemeButton>{localize("LABEL_LOGIN")}</ThemeButton>
+        <ThemeButton onClick={doLogin}>{localize("LABEL_LOGIN")}</ThemeButton>
     </ThemePanel>
 }
 

@@ -1,12 +1,18 @@
 import { spawn } from "redux-saga/effects";
 
-import * as sagaList from "./index";
+import { watchers as auth } from "./auth";
 
 function* rootSaga() {
-    const sagas = Object.values(sagaList).filter(saga => Object.values(saga).length > 0);
+    const masterWatcherList = {
+        ...auth,
+    }
+
+    const sagas = Object.values(masterWatcherList);
 
     for (let i = 0; i < sagas.length; i++) {
-        yield spawn(sagas[i]);
+        if (sagas[i]) {
+            yield spawn(sagas[i]);
+        }
     }
 }
 

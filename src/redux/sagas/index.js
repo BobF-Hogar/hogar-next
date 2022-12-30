@@ -1,4 +1,4 @@
-import * as auth from "./auth";
+import { sagas as auth } from "./auth";
 
 // Collect all sagas into a single export objects
 const sagaMasterList = {
