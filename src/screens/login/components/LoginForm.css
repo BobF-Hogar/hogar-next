@@ -34,3 +34,7 @@
     position: relative;
     width: 100%;
 }
+
+#login-button {
+    width: 100%;
+}

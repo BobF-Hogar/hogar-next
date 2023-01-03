@@ -58,7 +58,7 @@ function LoginForm() {
             <ThemeCheckbox />
             {localize("LABEL_REMEMBER_ME")}
         </div>
-        <ThemeButton onClick={doLogin}>{localize("LABEL_LOGIN")}</ThemeButton>
+        <ThemeButton id="login-button" onClick={doLogin}>{localize("LABEL_LOGIN")}</ThemeButton>
     </ThemePanel>
 }
 
