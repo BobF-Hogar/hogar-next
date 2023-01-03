@@ -16,7 +16,7 @@ function NavButton(props) {
         className="nav-button"
     >
         <Link to={path}
-            style={applyTheme({}, theme, (window.location.pathname === path) ? "navButtonSelected" : "navButton")}
+            style={applyTheme({}, theme, (window.location.pathname.endsWith(path) || ((path === "/") && (!window.location.pathname.indexOf(path) === -1))) ? "navButtonSelected" : "navButton")}
         >
             <span>{name}</span>
         </Link>

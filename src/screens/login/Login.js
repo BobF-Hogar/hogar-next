@@ -1,5 +1,4 @@
 import React, { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
 import localize from "../../localization";
 
 import LoginForm from "./components/LoginForm";
@@ -8,14 +7,8 @@ import ThemeButton from "../../ui/ThemeButton";
 import "./Login.css";
 
 function Login() {
-    const navigate = useNavigate();
-
     useEffect(() => {
         document.title = localize("APP_PAGE_LOGIN");
-
-        if (window.location.pathname !== "/") {
-            navigate("/");
-        }
     }, []);
 
     return <main id="loginScreen">
@@ -27,7 +20,7 @@ function Login() {
         <div id="loginActions">
             <div />
             <LoginForm />
-            <ThemeButton>{localize("LABEL_SAVE_APP")}</ThemeButton>
+            <ThemeButton onClick={() => { window.alert("This will show a popup with insructions for saving the PWA based on the user's browser/OS.")}}>{localize("LABEL_SAVE_APP")}</ThemeButton>
         </div>
     </main>;
 }
