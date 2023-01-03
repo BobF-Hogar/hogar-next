@@ -8,7 +8,6 @@ import { Provider } from "react-redux";
 
 import Login from "./screens/login/Login";
 import Dashboard from "./screens/dashboard/Dashboard";
-import { detectEnvironment } from "./util";
 
 const router = createBrowserRouter([
   {
@@ -22,7 +21,7 @@ const router = createBrowserRouter([
   }
 ],
 {
-  basename: (detectEnvironment() === "staging") ? "/router-next" : "",
+  basename: (window.location.hostname.indexOf("github.io") > -1) ? "/hogar-next" : "",
 });
 
 function App() {
