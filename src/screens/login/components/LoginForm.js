@@ -1,8 +1,8 @@
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
 import localize from "../../../localization";
 
 import { loginAction } from "../../../redux/authSlice";
-import sagas from "../../../redux/sagas";
 
 import ThemePanel from "../../../ui/ThemePanel";
 import ThemeInput from "../../../ui/ThemeInput";
@@ -14,6 +14,8 @@ import "./LoginForm.css";
 function LoginForm() {
     const [ formData, setFormData ] = useState({});
     const [ loginMode, setLoginMode ] = useState((window.screen.width < 440) ? "phonenumber" : "email");
+
+    const dispatch = useDispatch();
 
     const toggleLoginMode = () => {
         const newFormData = { ...formData };
@@ -33,8 +35,7 @@ function LoginForm() {
     }
 
     const doLogin = () => {
-        console.log("Login", formData);
-        sagas.sagaLoginAction(loginAction(formData));
+        dispatch(loginAction(formData));
     }
 
     return <ThemePanel id="login-form">

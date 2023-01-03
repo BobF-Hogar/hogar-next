@@ -1,11 +1,10 @@
-import { takeEvery, put } from "redux-saga/effects";
+import { call, put, takeLatest } from "redux-saga/effects";
 import { loginAction, loginFailed, loginSuccess } from "../authSlice";
 import { login } from "../../connection/auth";
 
 function* sagaLoginAction(action) {
-    console.log("Logging in!");
     try {
-        const result = login(action.payload);
+        const result = yield call(login, action.payload);
 
         switch(result?.statusCode) {
             case 200:
@@ -20,7 +19,7 @@ function* sagaLoginAction(action) {
 }
 
 export function* watchLoginAction() {
-    yield takeEvery(loginAction().type, sagaLoginAction);
+    yield takeLatest(loginAction().type, sagaLoginAction);
 }
 
 export const sagas = {

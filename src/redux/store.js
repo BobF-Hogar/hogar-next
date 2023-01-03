@@ -13,8 +13,8 @@ export default configureStore({
         auth: authReducer,
         theme: themeReducer,
     },
-    middleware: (getDeffaultMiddleware) => {
-        return getDeffaultMiddleware().concat(sagaMiddleware);
+    middleware: (getDefaultMiddleware) => {
+        return getDefaultMiddleware().concat(sagaMiddleware);
     }
 });
 

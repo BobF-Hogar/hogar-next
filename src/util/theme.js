@@ -1,11 +1,11 @@
 const themePresets = {
     dark: {
         button: {
-            backgroundColor: "#404040",
+            backgroundColor: "rgba(128, 128, 128, 0.4)",
             color: "white",
         },
         input: {
-            backgroundColor: "#303030",
+            backgroundColor: "rgba(128, 128, 128, 0.2)",
             color: "white",
         },
         panel: {
