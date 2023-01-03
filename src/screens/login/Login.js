@@ -14,6 +14,7 @@ function Login() {
     return <div id="loginScreen">
         <div id="hero">
             <h1>{localize("HERO_HEADER")}</h1>
+            <div className="mainLogo" />
             <p>{localize("HERO_TEXT")}</p>
         </div>
         <div id="loginActions">

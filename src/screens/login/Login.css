@@ -9,13 +9,19 @@
 }
 
 #hero {
+    align-items: center;
     color: white;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    padding: 5% 10%;
+    padding: 5%;
     height: 100%;
     max-height: 400px;
+}
+
+#hero h1 {
+    text-align: center;
+    width: 100%;
 }
 
 #loginActions {
@@ -29,6 +35,15 @@
     width: 400px;
 }
 
+.mainLogo {
+    background-image: url('../../images/logo255.png');
+    background-size: cover;
+    height: 25vw;
+    max-height: 256px;
+    max-width: 256px;
+    width: 25vw;
+}
+
 @media screen and (max-width: 800px) {
     #loginScreen {
         flex-direction: column;
@@ -36,9 +51,25 @@
 
     #hero {
         height: auto;
+        padding: 10px 10px 0 10px;
+        max-width: 100%;
+    }
+
+    #hero p {
+        margin: 0 ;
+        max-width: calc(100% - 40px);
+        width: 400px;
     }
 
     #loginActions {
         justify-content: space-between;
+    }
+
+    #loginActions > *:first-child {
+        display: none;
+    }
+
+    .mainLogo {
+        margin: 10px 0;
     }
 }
