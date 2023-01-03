@@ -1,5 +1,5 @@
 import { call, put, takeLatest } from "redux-saga/effects";
-import { loginAction, loginFailed, loginSuccess } from "../authSlice";
+import { loginAction, loginFailed, loginSuccess } from "../auth";
 import { login } from "../../connection/auth";
 
 function* sagaLoginAction(action) {
@@ -9,8 +9,7 @@ function* sagaLoginAction(action) {
         switch(result?.statusCode) {
             case 200:
             default:
-                console.log(result);
-                yield put(loginSuccess("TODO"));
+                yield put(loginSuccess(result));
                 break;
         }
     } catch (e) {

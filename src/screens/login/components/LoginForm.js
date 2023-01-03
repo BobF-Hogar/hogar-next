@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import localize from "../../../localization";
 
-import { loginAction } from "../../../redux/authSlice";
+import { loginAction } from "../../../redux/auth";
 
 import ThemePanel from "../../../ui/ThemePanel";
 import ThemeInput from "../../../ui/ThemeInput";
@@ -16,6 +16,8 @@ function LoginForm() {
     const [ loginMode, setLoginMode ] = useState((window.screen.width < 440) ? "phonenumber" : "email");
 
     const dispatch = useDispatch();
+
+    const disableLogin = ((!formData.email) && (!formData.phonenumber)) || !formData.password;
 
     const toggleLoginMode = () => {
         const newFormData = { ...formData };
@@ -32,6 +34,16 @@ function LoginForm() {
         newFormData[e.target.dataset.key] = e.target.value;
 
         setFormData(newFormData);
+    }
+
+    const toggleRememberLogin = () => {
+        const remember = sessionStorage.getItem("rememberLogin");
+
+        if (remember) {
+            sessionStorage.removeItem("rememberLogin");
+        } else {
+            sessionStorage.setItem("rememberLogin", !remember);
+        }
     }
 
     const doLogin = () => {
@@ -56,10 +68,10 @@ function LoginForm() {
             <ThemeInput type="password" defaultValue={formData.password} onChange={changeFormItem} data-key="password" />
         </div>
         <div className="checkbox-row">
-            <ThemeCheckbox />
+            <ThemeCheckbox onChange={toggleRememberLogin} defaultValue={sessionStorage.getItem("rememberLogin")} />
             {localize("LABEL_REMEMBER_ME")}
         </div>
-        <ThemeButton id="login-button" onClick={doLogin}>{localize("LABEL_LOGIN")}</ThemeButton>
+        <ThemeButton id="login-button" onClick={doLogin} disabled={disableLogin}>{localize("LABEL_LOGIN")}</ThemeButton>
     </ThemePanel>
 }
 

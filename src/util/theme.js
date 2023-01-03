@@ -4,9 +4,22 @@ const themePresets = {
             backgroundColor: "rgba(128, 128, 128, 0.4)",
             color: "white",
         },
+        buttonDisabled: {
+            backgroundColor: "rgba(128, 128, 128, 0.0625)",
+            color: "#606060"
+        },
         input: {
             backgroundColor: "rgba(128, 128, 128, 0.2)",
             color: "white",
+        },
+        navButton: {
+            backgroundColor: "black",
+            color: "white",
+        },
+        navButtonSelected: {
+            color: "white",
+            fontWeight: "bold",
+            pointerEvents: "none",
         },
         panel: {
             backgroundColor: "#202020",
@@ -15,7 +28,7 @@ const themePresets = {
     }
 };
 
-export default function applyTheme(style, theme, type) {
+export default function applyTheme(style, theme, type, overrides) {
     if ((!theme) || (!type)) {
         return style;
     }

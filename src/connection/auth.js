@@ -14,5 +14,6 @@ export function login(user) {
     // );
 
     const newUserData = { ...user, token: "blahblahblah" };
+    delete newUserData.password;
     return newUserData;
 }

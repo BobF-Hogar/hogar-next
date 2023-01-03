@@ -1,0 +1,42 @@
+.nav-button {
+    max-width: 256px;
+    min-width: 100px;
+    transition: background-color 0.1s ease-in-out, color 0.1s ease-in-out, filter 0.1s ease-in-out, font-weight 0.1s ease-in-out;
+    width: 20vw;
+}
+
+.nav-button:hover {
+    filter: brightness(1.5);
+    font-weight: bold;
+}
+
+.nav-button a {
+    align-items: center;
+    border-radius: 4px;
+    color: inherit;
+    cursor: pointer;
+    display: flex;
+    height: 32px;
+    padding: 4px 8px;
+    text-decoration: none;
+}
+
+@media screen and (max-width: 800px) {
+    .nav-button {
+        min-width: auto;
+        width: auto;
+    }
+
+    .nav-button a {
+        border-radius: 2vw;
+        height: 15vw;
+        justify-content: center;
+        padding: 0;
+        width: 15vw;
+    }
+
+    .nav-button a span {
+        /* display: none; */
+        overflow: hidden;
+    }
+}

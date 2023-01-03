@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { selectTheme } from "../redux/themeSlice";
+import { selectTheme } from "../redux/theme";
 import applyTheme from "../util/theme";
 
 function ThemePanel(props) {

@@ -2,22 +2,21 @@ import React from "react";
 import "./App.css";
 
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import { checkLogin } from "./util/auth";
 import store from "./redux/store";
 import { Provider } from "react-redux";
 
-import Login from "./screens/login/Login";
-import Dashboard from "./screens/dashboard/Dashboard";
+import Main from "./screens/main/Main";
+import { screens } from "./screens";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Dashboard />,
-    loader: checkLogin,
+    element: <Main />,
+    children: screens,
   },
   {
-    path: "/login",
-    element: <Login />,
+    path: "*",
+    element: <div>404</div>
   }
 ],
 {

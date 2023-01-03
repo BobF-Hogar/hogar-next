@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { selectTheme } from "../redux/themeSlice";
+import { selectTheme } from "../redux/theme";
 import applyTheme from "../util/theme";
 
 function ThemeButton(props) {
@@ -10,7 +10,7 @@ function ThemeButton(props) {
 
     return <button
         className={"button " + (className || "")}
-        style={applyTheme(style, theme, "button")}
+        style={applyTheme(style, theme, (rest.disabled) ? "buttonDisabled" : "button")}
         {...rest}
     >
         {children}

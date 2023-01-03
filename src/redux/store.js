@@ -3,8 +3,8 @@ import createSagaMiddleware from "redux-saga";
 
 import rootSaga from "./sagas/root";
 
-import authReducer from "./authSlice";
-import themeReducer from "./themeSlice";
+import authReducer from "./auth";
+import themeReducer from "./theme";
 
 const sagaMiddleware = createSagaMiddleware();
 

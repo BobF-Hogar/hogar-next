@@ -22,7 +22,11 @@ h1, h2, h3, h4, h5, ol, ul {
   border-radius: 4px;
   padding: 8px 16px;
   position: relative;
-  transition: filter 0.1s ease-in-out;
+  transition: background-color 0.1s ease-in-out, color 0.1s ease-in-out, filter 0.1s ease-in-out;
+}
+
+.button[disabled], .input[disabled] {
+  pointer-events: none;
 }
 
 .checkbox-holder {

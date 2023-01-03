@@ -10,7 +10,19 @@ export const authSlice = createSlice({
         loginFailed: (state) => {
             return state;
         },
-        loginSuccess: (state, payload) => {
+        loginSuccess: (state, action) => {
+            if (action.payload) {
+                if (sessionStorage.getItem("rememberLogin")) {
+                    localStorage.setItem("userData", JSON.stringify(action.payload));
+                } else {
+                    localStorage.removeItem("userData");
+                }
+
+                state.user = action.payload;
+            }else {
+                localStorage.removeItem("userData");
+            }
+ 
             return state;
         }
     }
