@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/hogar-next/static/css/main.0d848af6.css",
-    "main.js": "/hogar-next/static/js/main.760d5cf1.js",
+    "main.css": "/hogar-next/static/css/main.2cb4382e.css",
+    "main.js": "/hogar-next/static/js/main.bc98fe5c.js",
     "service-worker.js": "/hogar-next/service-worker.js",
     "static/media/logo255.png": "/hogar-next/static/media/logo255.ce562ad389037e159390.png",
     "index.html": "/hogar-next/index.html",
-    "main.0d848af6.css.map": "/hogar-next/static/css/main.0d848af6.css.map",
-    "main.760d5cf1.js.map": "/hogar-next/static/js/main.760d5cf1.js.map"
+    "main.2cb4382e.css.map": "/hogar-next/static/css/main.2cb4382e.css.map",
+    "main.bc98fe5c.js.map": "/hogar-next/static/js/main.bc98fe5c.js.map"
   },
   "entrypoints": [
-    "static/css/main.0d848af6.css",
-    "static/js/main.760d5cf1.js"
+    "static/css/main.2cb4382e.css",
+    "static/js/main.bc98fe5c.js"
   ]
 }
