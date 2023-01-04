@@ -11,7 +11,7 @@ function matchPath(path) {
     if (window.location.pathname.endsWith(path)) {
         return true;
     } else if (path === "/") {
-        return ((window.location.hostname.indexOf("github.io") > -1) && (window.location.path.lastIndexOf(path) <= 0));
+        return ((window.location.hostname.indexOf("github.io") > -1) && (window.location.pathname.lastIndexOf(path) <= 0));
     } else {
         return false;
     }
