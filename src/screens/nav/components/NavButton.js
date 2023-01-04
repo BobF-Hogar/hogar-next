@@ -7,6 +7,16 @@ import { Link } from "react-router-dom";
 
 import "./NavButton.css";
 
+function matchPath(path) {
+    if (window.location.pathname.endsWith(path)) {
+        return true;
+    } else if (path === "/") {
+        return ((window.location.hostname.indexOf("github.io") > -1) && (window.location.path.lastIndexOf(path) <= 0));
+    } else {
+        return false;
+    }
+}
+
 function NavButton(props) {
     const { name, icon, path } = props;
 
@@ -16,7 +26,7 @@ function NavButton(props) {
         className="nav-button"
     >
         <Link to={path}
-            style={applyTheme({}, theme, (window.location.pathname.endsWith(path) || ((path === "/") && (window.location.pathname.lastIndexOf(path) <= 0))) ? "navButtonSelected" : "navButton")}
+            style={applyTheme({}, theme, matchPath(path) ? "navButtonSelected" : "navButton")}
         >
             <span>{name}</span>
         </Link>

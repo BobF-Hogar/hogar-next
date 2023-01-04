@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import localize from "../../localization";
+import { detectEnvironment, setEnvironmentOverride } from "../../util";
 
 import LoginForm from "./components/LoginForm";
 import ThemeButton from "../../ui/ThemeButton";
@@ -9,6 +10,12 @@ import "./Login.css";
 function Login() {
     useEffect(() => {
         document.title = localize("APP_PAGE_LOGIN");
+        window.getEnvironment = detectEnvironment;
+        window.setEnvironment = setEnvironmentOverride;
+
+        return () => {
+            window.setEnvironment = undefined;
+        }
     }, []);
 
     return <main id="loginScreen">

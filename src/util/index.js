@@ -12,6 +12,23 @@ export function detectEnvironment() {
     }
 }
 
+export function setEnvironmentOverride(newEnvironment) {
+    newEnvironment = newEnvironment?.toLowerCase();
+
+    switch (newEnvironment) {
+        case "development":
+        case "staging":
+        case "production":
+            sessionStorage.setItem("environmentOverride", newEnvironment);
+            break;
+        default:
+            sessionStorage.removeItem("environmentOverride");
+            break;
+    }
+
+    console.log(`Current environment is ${detectEnvironment()}.`);
+}
+
 // TODO - return "android", "ios", or "web"
 export function detectPlatform() {
     return "web";
