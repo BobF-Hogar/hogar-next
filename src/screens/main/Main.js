@@ -6,6 +6,7 @@ import { selectUser } from "../../redux/auth";
 
 import Login from "../login/Login";
 import Nav from "../nav/Nav";
+import ModalManager from "../modals/ModalManager";
 
 function Main() {
     const user = useSelector(selectUser);
@@ -19,11 +20,10 @@ function Main() {
         }
     }, []);
 
-    if (user) {
-        return <Nav />
-    } else {
-        return <Login />
-    }
+    return <>
+        {(user) ? <Nav /> : <Login />}
+        <ModalManager />
+    </>
 }
 
 export default Main;

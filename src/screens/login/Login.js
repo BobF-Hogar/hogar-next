@@ -1,6 +1,10 @@
 import React, { useEffect } from "react";
+import { useDispatch } from "react-redux";
 import localize from "../../localization";
 import { detectEnvironment, setEnvironmentOverride } from "../../util";
+
+import modalList from "../modals";
+import { setModal } from "../../redux/modal";
 
 import LoginForm from "./components/LoginForm";
 import ThemeButton from "../../ui/ThemeButton";
@@ -8,6 +12,8 @@ import ThemeButton from "../../ui/ThemeButton";
 import "./Login.css";
 
 function Login() {
+    const dispatch = useDispatch();
+
     useEffect(() => {
         document.title = localize("APP_PAGE_LOGIN");
         window.getEnvironment = detectEnvironment;
@@ -18,6 +24,10 @@ function Login() {
         }
     }, []);
 
+    const showInstallModal = () => {
+        dispatch(setModal(modalList.MODAL_SAVE_PWA.create()));
+    }
+
     return <main id="loginScreen">
         <div id="hero">
             <h1>{localize("HERO_HEADER")}</h1>
@@ -27,7 +37,7 @@ function Login() {
         <div id="loginActions">
             <div />
             <LoginForm />
-            <ThemeButton onClick={() => { window.alert("This will show a popup with insructions for saving the PWA based on the user's browser/OS.")}}>{localize("LABEL_SAVE_APP")}</ThemeButton>
+            <ThemeButton onClick={showInstallModal}>{localize("LABEL_SAVE_APP")}</ThemeButton>
         </div>
     </main>;
 }
