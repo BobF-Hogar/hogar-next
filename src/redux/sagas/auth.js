@@ -8,8 +8,9 @@ function* sagaLoginAction(action) {
 
         switch(result?.statusCode) {
             case 200:
+                yield put(loginSuccess({}));
             default:
-                yield put(loginSuccess(result));
+                yield put(loginFailed());
                 break;
         }
     } catch (e) {

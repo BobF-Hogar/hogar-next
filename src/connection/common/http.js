@@ -7,13 +7,13 @@ const prefReqid = "Hogar Next";
 let countReq = 0;
 
 export function generateReqId(tag) {
-    const deviceName = "TODO";
+    const deviceName = window.navigator.platform;
 
-    return `${!!tag ? tag : ''}${prefReqid}-${deviceName}-${(new Date()).getTime()}-${countReq++}`;
+    return `${!!tag ? tag : ""}${prefReqid}-${deviceName}-${(new Date()).getTime()}-${countReq++}`;
 }
 
 function buildUrl(url, callToServer) {
-    if ((!!callToServer) || (apiRoutes[url].callToServer)) {
+    if ((!!callToServer) || (url.callToServer)) {
         return `${getApiUrlInfo().apiUrl}${url}`;
     } else {
         return `${getApiUrlInfo().apiUrl}${url}`; // TODO - BaseUrlApi
@@ -38,17 +38,19 @@ function doPost(
     dontListenSocket,
     showNotifications,
     callToServer) {
-    if (apiRoutes[url].callToThing) {
+    if (url.callToThing) {
         // TODO!
     }
 
     return new Promise((resolve, reject) => {
+        const sendUrl = !dontNeedBase ? buildUrl(url, callToServer) : url.toString();
+
         sendPost(
-            !dontNeedBase ? buildUrl(url, callToServer) : url,
+            sendUrl,
             data,
             token,
             apiKey,
-            "en-us", // TODO!
+            "en-us", // TODO?
             timeout
         ).then((response) => {
             // TODO - Add valid token/user statuses
@@ -74,6 +76,7 @@ export function POST(
     showNotifications,
     callToServer
 ) {
+    console.log("POST", url);
     return new Promise((resolve) => {
         processTokenExpired(token).then((tokenRefresh) => {
             doPost(

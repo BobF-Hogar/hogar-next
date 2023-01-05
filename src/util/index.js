@@ -1,6 +1,8 @@
 export function detectEnvironment() {
     const environmentOverride = sessionStorage.getItem("environmentOverride");
 
+    return "production";
+
     if (environmentOverride) {
         return environmentOverride;
     } else if (window.location.hostname === "localhost") {

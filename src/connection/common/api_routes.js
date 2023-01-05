@@ -1,5 +1,5 @@
 function setRouteInfo(url, callToServer = true, callToControl = false, callToThing = false) {
-    return { url, callToServer, callToControl, callToThing };
+    return { url, callToServer, callToControl, callToThing, toString: () => { return url } };
 }
 
 const apiRoutes = {
