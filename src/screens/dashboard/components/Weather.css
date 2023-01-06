@@ -1,0 +1,54 @@
+#weather-widget {
+    align-items: center;
+    display: flex;
+    gap: 6px;
+}
+
+#weather-row-temperature, #weather-row-humidity {
+    align-items: center;
+    display: flex;
+    gap: 6px;
+}
+
+#weather-row-humidity {
+    flex-direction: row-reverse;
+}
+
+#weather-city {
+    font-weight: bold;
+}
+
+#weather-icon {
+    background-size: cover;
+    height: 1em;
+    width: 1em;
+}
+
+#weather-conditions {
+    font-size: 0.9em;
+}
+
+#weather-humidity {
+    font-size: 0.75em;
+}
+
+@media screen and (max-width: 800px) {
+    #weather-widget {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 0;
+    }
+
+    #weather-city {
+        font-weight: normal;
+    }
+
+    #weather-temperature {
+        font-size: 2em;
+        font-weight: bold;
+    }
+
+    #weather-row-humidity {
+        flex-direction: row;
+    }
+}

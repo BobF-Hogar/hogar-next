@@ -6,6 +6,7 @@ import rootSaga from "./sagas/root";
 import authReducer from "./auth";
 import modalreducer from "./modal";
 import themeReducer from "./theme";
+import weatherReducer from "./weather";
 
 const sagaMiddleware = createSagaMiddleware();
 
@@ -14,6 +15,7 @@ export default configureStore({
         auth: authReducer,
         modal: modalreducer,
         theme: themeReducer,
+        weather: weatherReducer,
     },
     middleware: (getDefaultMiddleware) => {
         return getDefaultMiddleware().concat(sagaMiddleware);

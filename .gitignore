@@ -24,3 +24,4 @@ yarn-error.log*
 
 # custom
 api_info.js
+api_key.js

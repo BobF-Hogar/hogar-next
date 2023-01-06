@@ -1,0 +1,47 @@
+#status {
+    align-items: flex-start;
+    display: flex;
+    justify-content: center;
+    margin: 10px 10px 0 10px;
+    position: relative;
+}
+
+#status-buttons {
+    display: flex;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+#status-home {
+    align-items: center;
+    display: flex;
+    gap: 4px;
+    justify-content: center;
+    width: 100%;
+}
+
+#status #weather-widget {
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+@media screen and (max-width: 800px) {
+    #status {
+        flex-direction: column-reverse;
+        gap: 20px;
+    }
+
+    #status-buttons {
+        width: 100%;
+    }
+
+    #status-buttons > *:first-child {
+        flex-grow: 1;
+    }
+
+    #status #weather-widget {
+        position: relative;
+    }
+}

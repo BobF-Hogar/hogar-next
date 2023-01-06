@@ -7,10 +7,11 @@ function* sagaLoginAction(action) {
         const result = yield call(login, action.payload);
 
         switch(result?.statusCode) {
-            case 200:
-                yield put(loginSuccess({}));
-            default:
+            case 404:
                 yield put(loginFailed());
+                break;
+            default:
+                yield put(loginSuccess(result));           
                 break;
         }
     } catch (e) {

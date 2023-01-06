@@ -1,10 +1,12 @@
 import { spawn } from "redux-saga/effects";
 
 import { watchers as auth } from "./auth";
+import { watchers as weather } from "./weather";
 
 function* rootSaga() {
     const masterWatcherList = {
         ...auth,
+        ...weather,
     }
 
     const sagas = Object.values(masterWatcherList);
