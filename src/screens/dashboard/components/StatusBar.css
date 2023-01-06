@@ -41,6 +41,11 @@
         flex-grow: 1;
     }
 
+    #status-home {
+        justify-content: flex-start;
+        margin-left: 32px;
+    }
+
     #status #weather-widget {
         position: relative;
     }
