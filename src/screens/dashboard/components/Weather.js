@@ -10,8 +10,6 @@ function Weather() {
     const icon = weather?.weather[0]?.icon || '10d';
     const iconWeather = `https://openweathermap.org/img/w/${icon}.png`;
 
-    console.log(weather);
-
     return <div id="weather-widget">
         <div id="weather-city">{weather?.name || "-"}</div>
         <div id="weather-row-temperature">

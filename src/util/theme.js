@@ -25,6 +25,9 @@ const themePresets = {
             backgroundColor: "#202020",
             color: "white",
         },
+        topLevelText: {
+            color: "white",
+        }
     }
 };
 

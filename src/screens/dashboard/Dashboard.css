@@ -1,3 +1,41 @@
 #dashboard {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
     flex-grow: 1;
+}
+
+#dashboard-container {
+    display: flex;
+    flex-direction: row-reverse;
+    flex-wrap: wrap;
+    max-width: 800px;
+    width: 100%;
+}
+
+#scene-container {
+    width: 240px;
+}
+
+#device-container {
+    flex-grow: 1;
+}
+
+#dashboard .panel-header {
+    display: flex;
+    margin: 10px 10px 0 10px;
+}
+
+#dashboard .panel-header h2 {
+    flex-grow: 1;
+    font-size: 1em;
+    font-weight: normal;
+    margin: 0;
+    padding: 0;
+}
+
+@media screen and (max-width: 800px) {
+    #device-container, #scene-container {
+        width: 100%;
+    }
 }
