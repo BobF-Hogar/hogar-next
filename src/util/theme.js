@@ -12,6 +12,14 @@ const themePresets = {
             backgroundColor: "rgba(128, 128, 128, 0.2)",
             color: "white",
         },
+        interactable: {
+            backgroundColor: "#101010",
+            color: "white",
+        },
+        interactableActive: {
+            backgroundColor: "white",
+            color: "black",
+        },
         navButton: {
             backgroundColor: "black",
             color: "white",

@@ -8,12 +8,12 @@
 #dashboard-container {
     display: flex;
     flex-direction: row-reverse;
-    flex-wrap: wrap;
     max-width: 800px;
     width: 100%;
 }
 
 #scene-container {
+    min-width: 240px;
     width: 240px;
 }
 
@@ -34,8 +34,25 @@
     padding: 0;
 }
 
+#device-favorites {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+/* TODO - device-favorites pushes scene-favorites out of the viewable area on very small screens! */
+
 @media screen and (max-width: 800px) {
+    #dashboard-container {
+        flex-wrap: wrap;
+        overflow-y: auto;
+    }
+
     #device-container, #scene-container {
         width: 100%;
+    }
+
+    #device-favorites {
+        gap: 10px;
     }
 }

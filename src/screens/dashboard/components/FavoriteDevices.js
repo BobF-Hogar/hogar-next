@@ -1,6 +1,7 @@
 import React from "react";
 
 import ThemePanel from "../../../ui/ThemePanel";
+import DeviceButton from "./DeviceButton";
 
 function FavoriteDevices() {
     return <>
@@ -9,8 +10,14 @@ function FavoriteDevices() {
             <div>E</div>
             <div>A</div>
         </div>
-        <ThemePanel>
-            Device list here
+        <ThemePanel id="device-favorites">
+            <DeviceButton active={true} />
+            <DeviceButton active={true} />
+            <DeviceButton />
+            <DeviceButton active={true} />
+            <DeviceButton active={true} />
+            <DeviceButton active={true} />
+            <DeviceButton />
         </ThemePanel>
     </>;
 }
