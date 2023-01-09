@@ -8,16 +8,13 @@ import Login from "../login/Login";
 import Nav from "../nav/Nav";
 import ModalManager from "../modals/ModalManager";
 
+// Wrapper component for top level logic.
 function Main() {
     const user = useSelector(selectUser);
-    const navigate = useNavigate();
+    const navigate = useNavigate(); // Bizarrely, NavButton route detection fails if this is removed???
 
     useEffect(() => {
         // TODO - Attempt auto-login if localStorage has userData!
-
-        if (window.location.pathname !== "/") {
-            navigate("/");
-        }
     }, []);
 
     return <>

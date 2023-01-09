@@ -8,7 +8,7 @@
 #dashboard-container {
     display: flex;
     flex-direction: row-reverse;
-    max-width: 800px;
+    max-width: 768px;
     width: 100%;
 }
 
