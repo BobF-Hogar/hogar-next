@@ -1,6 +1,7 @@
 import apiRoutes from "./api_routes";
 import { getApiUrlInfo } from "./api_info";
 import { sendPost } from "./api";
+import { processTokenExpired } from "./token";
 
 const prefReqid = "Hogar Next";
 
@@ -18,13 +19,6 @@ function buildUrl(url, callToServer) {
     } else {
         return `${getApiUrlInfo().apiUrl}${url}`; // TODO - BaseUrlApi
     }
-}
-
-// TODO - Actually check token
-function processTokenExpired(token) {
-    return new Promise((res) => {
-        res(token);
-    });
 }
 
 // Methods split out from connection/index.js in RN version

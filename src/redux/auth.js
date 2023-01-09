@@ -24,12 +24,17 @@ export const authSlice = createSlice({
             }
  
             return state;
+        },
+        refreshToken: (state, action) => {
+            state.token = action.payload;
+            return state;
         }
     }
 });
 
 export const selectUser = (state) => { return state.auth.user };
+export const selectToken = (state) => { return state.auth.token };
 
-export const { loginAction, loginFailed, loginSuccess } = authSlice.actions;
+export const { loginAction, loginFailed, loginSuccess, refreshToken } = authSlice.actions;
 
 export default authSlice.reducer;
