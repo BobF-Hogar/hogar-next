@@ -2,7 +2,7 @@ import { isCallApiServer, waitForRefreshToken } from ".";
 import apiRoutes from "./api_routes";
 
 import store from "../../redux/store";
-import { selectToken, selectUser, refreshToken } from "../../redux/auth";
+import { authActions, authSelectors} from "../../redux/auth";
 import { login } from "../auth";
 
 let currentTokenLocal;
@@ -13,7 +13,7 @@ let timeoutRefreshToken;
 export function getToken(url, callToServer) {
     if (!!callToServer || !!!url || apiRoutes[url].callToServer || isCallApiServer) {
         if (!this._currentTokenServer) {
-          const token = selectToken(store.getState());
+          const token = authSelectors.token(store.getState());
           currentTokenServer = token;
         }
   
@@ -49,7 +49,7 @@ export function processTokenExpired(token) {
               return;
             }
   
-            const currentUser = selectUser(store.getState());
+            const currentUser = authSelectors.user(store.getState());
   
             if (currentUser.password && (currentUser.email || currentUser.phonenumber)) {
               const data = {
@@ -64,7 +64,7 @@ export function processTokenExpired(token) {
                 if (res.success && res.statusCode === 200) {
                   currentTokenServer = res.data.access_token;
   
-                  store.dispatch(refreshToken(res.data.access_token));
+                  store.dispatch(authActions.refreshToken(res.data.access_token));
                   resolve(currentTokenServer);
                 } else {
                   resolve(token);

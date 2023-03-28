@@ -22,7 +22,9 @@ function ModalSavePWA() {
         <p>
             This popup will detect the user's browser/OS and give the relevant PWA install instructions.
         </p>
-        <ThemeButton onClick={killMe}>Ok</ThemeButton>
+        <div>
+            <ThemeButton onClick={killMe}>Ok</ThemeButton>
+        </div>
     </ThemePanel>
 }
 

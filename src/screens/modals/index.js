@@ -1,3 +1,4 @@
+import ModalGeneric from "./generic/ModalGeneric";
 import ModalSavePWA from "./savepwa/ModalSavePWA";
 
 class ModalType {
@@ -22,6 +23,7 @@ class ModalType {
 }
 
 const modalList = {
+    MODAL_GENERIC: new ModalType("MODAL_GENERIC", ModalGeneric),
     MODAL_SAVE_PWA: new ModalType("MODAL_SAVE_PWA", ModalSavePWA),
 };
 

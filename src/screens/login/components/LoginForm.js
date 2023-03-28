@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import localize from "../../../localization";
 
-import { loginAction } from "../../../redux/auth";
-import { getWeather } from "../../../redux/weather"; // TODO - Test code
+import { authActions } from "../../../redux/auth";
+import { weatherActions } from "../../../redux/weather"; // TODO - Test code
 
 import ThemePanel from "../../../ui/ThemePanel";
 import ThemeInput from "../../../ui/ThemeInput";
@@ -48,8 +48,8 @@ function LoginForm() {
     }
 
     const doLogin = () => {
-        dispatch(loginAction(formData));
-        dispatch(getWeather(true));
+        dispatch(authActions.loginAction(formData));
+        dispatch(weatherActions.getWeather(true));
     }
 
     return <ThemePanel id="login-form">

@@ -1,15 +1,14 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { listener } from "./listener";
+
+import { login } from "../connection/auth";
 
 export const authSlice = createSlice({
     name: "auth",
     initialState: {},
     reducers: {
-        loginAction: (state) => {
-            return state;
-        },
-        loginFailed: (state) => {
-            return {};
-        },
+        loginAction: () => { },
+        loginFailed: () => { },
         loginSuccess: (state, action) => {
             if (action.payload) {
                 // if (sessionStorage.getItem("rememberLogin")) {
@@ -22,19 +21,38 @@ export const authSlice = createSlice({
             }else {
                 localStorage.removeItem("userData");
             }
- 
-            return state;
         },
         refreshToken: (state, action) => {
             state.token = action.payload;
-            return state;
         }
     }
 });
 
-export const selectUser = (state) => { return state.auth.user };
-export const selectToken = (state) => { return state.auth.token };
+export const authActions = authSlice.actions;
 
-export const { loginAction, loginFailed, loginSuccess, refreshToken } = authSlice.actions;
+export const authSelectors = {
+    user: (state) => { return state.auth.user; },
+    token: (state) => { return state.auth.token; },
+}
+
+listener.startListening({
+    actionCreator: authActions.loginAction,
+    effect: async (action, listenerApi) => {
+        try {
+            const result = await login(action.payload);
+    
+            switch(result?.statusCode) {
+                case 404:
+                    listenerApi.dispatch(authActions.loginFailed());
+                    break;
+                default:
+                    listenerApi.dispatch(authActions.loginSuccess(result));
+                    break;
+            }
+        } catch (e) {
+            listenerApi.dispatch(authActions.loginFailed());
+        }
+    }
+})
 
 export default authSlice.reducer;

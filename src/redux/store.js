@@ -1,14 +1,10 @@
 import { configureStore } from "@reduxjs/toolkit";
-import createSagaMiddleware from "redux-saga";
-
-import rootSaga from "./sagas/root";
+import listenerMiddleware from "./listener";
 
 import authReducer from "./auth";
 import modalreducer from "./modal";
 import themeReducer from "./theme";
 import weatherReducer from "./weather";
-
-const sagaMiddleware = createSagaMiddleware();
 
 export default configureStore({
     reducer: {
@@ -18,8 +14,6 @@ export default configureStore({
         weather: weatherReducer,
     },
     middleware: (getDefaultMiddleware) => {
-        return getDefaultMiddleware().concat(sagaMiddleware);
+        return getDefaultMiddleware({ thunk: false }).prepend(listenerMiddleware);
     }
 });
-
-sagaMiddleware.run(rootSaga);

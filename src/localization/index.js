@@ -17,7 +17,7 @@ function localizeRecursive(input) {
 }
 
 export default function localize(key) {
-    let language = "en-us"; // TODO - Pull from redux!
+    let language = window.navigator.language.toLowerCase(); // TODO - Pull from redux/localStorage!
 
     // Default to english
     if ((!dictionaries[language]) || (!dictionaries[language][key])) {

@@ -5,12 +5,12 @@ export const modalSlice = createSlice({
     initialState: {},
     reducers: {
         clearModal: (state) => {
-            return {};
+            state.type = null;
+            state.data = null;
         },
         setModal: (state, action) => {
-            state = action.payload; // { type: "MODAL_WHATEVER", data: { if: needed }}
-            state.type = state.type.toString(); // Ensure type is a string!
-            return state;
+            state.type = action.payload.type.toString(); // Ensure type is a string!
+            state.data = action.payload.data;
         },
     }
 });

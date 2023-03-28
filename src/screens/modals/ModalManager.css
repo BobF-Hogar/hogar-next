@@ -17,5 +17,12 @@
     align-items: center;
     display: flex;
     flex-direction: column;
-    max-width: calc(100% - 20px);
+    max-width: fit-content;
+}
+
+/* Last div is always button container */
+#modal-background > * > div {
+    display: flex;
+    gap: 10px;
+    margin-top: 16px;
 }

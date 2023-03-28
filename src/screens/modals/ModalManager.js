@@ -22,10 +22,10 @@ function isChild(checkNode, matchNode) {
 
 function ModalManager() {
     const backgroundRef = useRef(null);
-    const modalInfo = useSelector(selectModal);
+    const modalType = useSelector(selectModal).type;
     const dispatch = useDispatch();
 
-    const ModalComponent = modalList[modalInfo.type]?.component;
+    const ModalComponent = modalList[modalType]?.component;
 
     const shouldClearModal = (e) => {
         if ((!isChild(e.target, backgroundRef.current)) && (!ModalComponent.noCancel)) {
