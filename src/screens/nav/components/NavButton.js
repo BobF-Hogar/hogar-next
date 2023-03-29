@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { selectTheme } from "../../../redux/theme";
+import { themeSelectors } from "../../../redux/theme";
 import applyTheme from "../../../util/theme";
 
 import { Link } from "react-router-dom";
@@ -20,7 +20,7 @@ function matchPath(path) {
 function NavButton(props) {
     const { name, icon, path } = props;
 
-    const theme = useSelector(selectTheme);
+    const theme = useSelector(themeSelectors.theme);
 
     return <li
         className="nav-button"

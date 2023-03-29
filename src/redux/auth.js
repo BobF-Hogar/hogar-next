@@ -37,18 +37,18 @@ export const authSelectors = {
 
 listener.startListening({
     actionCreator: authActions.loginAction,
-    effect: async (action, listenerApi) => {
+    effect: (action, listenerApi) => {
         try {
-            const result = await login(action.payload);
-    
-            switch(result?.statusCode) {
-                case 404:
-                    listenerApi.dispatch(authActions.loginFailed());
-                    break;
-                default:
-                    listenerApi.dispatch(authActions.loginSuccess(result));
-                    break;
-            }
+            login(action.payload).then((result) => {
+                switch(result?.statusCode) {
+                    case 404:
+                        listenerApi.dispatch(authActions.loginFailed());
+                        break;
+                    default:
+                        listenerApi.dispatch(authActions.loginSuccess(result));
+                        break;
+                }
+            });
         } catch (e) {
             listenerApi.dispatch(authActions.loginFailed());
         }

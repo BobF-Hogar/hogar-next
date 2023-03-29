@@ -39,44 +39,46 @@ export const weatherActions = weatherSlice.actions;
 
 listener.startListening({
     actionCreator: weatherActions.getWeather,
-    effect: async (action, listenerApi) => {
+    effect: (action, listenerApi) => {
         const language = "en-us"; // TODO!
 
         try {
             const home = homeSelectors.current(listenerApi.getState());
         
             if (home && !!home.address_info && !!home.address_info.geometry) {
-            const location = {
-                latitude: home.address_info.geometry.location.lat,
-                longitude: home.address_info.geometry.location.lng
-            }
-        
-            let res = await getWeatherFromLocation(location, language);
-
-            if (res?.main) {
-                listenerApi(weatherActions.weatherReceived(res));
-            } else {
-                listenerApi(weatherActions.weatherReceived());
-            }
+                const location = {
+                    latitude: home.address_info.geometry.location.lat,
+                    longitude: home.address_info.geometry.location.lng
+                }
+            
+                getWeatherFromLocation(location, language).then((result) => {
+                    if (result?.main) {
+                        listenerApi(weatherActions.weatherReceived(result));
+                    } else {
+                        listenerApi(weatherActions.weatherReceived());
+                    }
+                });
             } else {
                 const location = null; //yield select(currentLocationSelect);
 
                 if (location) {
-                    let res = await getWeatherFromLocation(location.coords, language);
-                    if (res && res.main) {
-                        listenerApi(weatherActions.weatherReceived(res));
-                    } else {
-                        listenerApi(weatherActions.weatherReceived());
-                    }
+                    getWeatherFromLocation(location.coords, language).then((result) => {
+                        if (result?.main) {
+                            listenerApi(weatherActions.weatherReceived(result));
+                        } else {
+                            listenerApi(weatherActions.weatherReceived());
+                        }
+                    });
                 } else {
-                    let res = await getWeatherFromCityName(WEATHER_COUNTRY.cityName, WEATHER_COUNTRY.country_name, language);
-                    // console.log('sagaGetWeather-------->', res)
+                    getWeatherFromCityName(WEATHER_COUNTRY.cityName, WEATHER_COUNTRY.country_name, language).then((result) => {
+                        // console.log('listenerGetWeather-------->', res)
 
-                    if (res && res.main) {
-                        listenerApi(weatherActions.weatherReceived(res));
-                    } else {
-                        listenerApi(weatherActions.weatherReceived());
-                    }
+                        if (result?.main) {
+                            listenerApi(weatherActions.weatherReceived(result));
+                        } else {
+                            listenerApi(weatherActions.weatherReceived());
+                        }
+                    });
                 }
             }
         } catch (e) {

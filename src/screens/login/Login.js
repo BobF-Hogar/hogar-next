@@ -4,7 +4,7 @@ import localize from "../../localization";
 import { detectEnvironment, setEnvironmentOverride } from "../../util";
 
 import modalList from "../modals";
-import { setModal } from "../../redux/modal";
+import { modalActions } from "../../redux/modal";
 
 import LoginForm from "./components/LoginForm";
 import ThemeButton from "../../ui/ThemeButton";
@@ -25,7 +25,7 @@ function Login() {
     }, []);
 
     const showInstallModal = () => {
-        dispatch(setModal(modalList.MODAL_SAVE_PWA.create()));
+        dispatch(modalActions.set(modalList.MODAL_SAVE_PWA.create()));
     }
 
     return <main id="loginScreen">

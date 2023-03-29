@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import localize from "../../../localization";
 
@@ -12,13 +12,31 @@ import ThemeButton from "../../../ui/ThemeButton";
 
 import "./LoginForm.css";
 
+function validLoginData(formData) {
+    if (formData.email) {
+        if (!formData.email.match(/^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/)) {
+            return false;
+        }
+    } else if (formData.phonenumber) {
+        if (!formData.phonenumber.match(/^(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]\d{3}[\s.-]\d{4}$/)) {
+            return false;
+        }
+    } else { return false; }
+    
+    if (formData.password) {
+        // TODO - Validate length?
+    } else { return false; }
+
+    return true;
+}
+
 function LoginForm() {
     const [ formData, setFormData ] = useState({});
     const [ loginMode, setLoginMode ] = useState((window.screen.width < 440) ? "phonenumber" : "email");
 
     const dispatch = useDispatch();
 
-    const disableLogin = ((!formData.email) && (!formData.phonenumber)) || !formData.password;
+    const disableLogin = !validLoginData(formData);
 
     const toggleLoginMode = () => {
         const newFormData = { ...formData };

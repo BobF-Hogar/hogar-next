@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { selectModal, clearModal } from "../../../redux/modal";
+import { modalActions, modalSelectors } from "../../../redux/modal";
 
 import ThemeButton from "../../../ui/ThemeButton";
 import ThemePanel from "../../../ui/ThemePanel";
@@ -17,7 +17,7 @@ function generateTextMarkup(text, index = null) {
 }
 
 function ModalGeneric() {
-    const modalData = useSelector(selectModal).data;
+    const modalData = useSelector(modalSelectors.data);
     const dispatch = useDispatch();
 
     const doAction = () => {
@@ -26,15 +26,15 @@ function ModalGeneric() {
 
             // Clear the modal if we're not chaining into a different one.
             if (!modalData.action.type.startsWith("modal")) {
-                dispatch(clearModal());
+                dispatch(modalActions.clear());
             }
         } else {
-            dispatch(clearModal());
+            dispatch(modalActions.clear());
         }
     }
 
     const cancelAction = () => {
-        dispatch(clearModal());
+        dispatch(modalActions.clear());
     }
 
     return <ThemePanel>

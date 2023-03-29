@@ -15,7 +15,7 @@ export function login(user) {
     const newUser = { ...user };
     delete newUser.password;
     newUser.token = "blahblahblah";
-    return {
-        newUser
-    };
+    return new Promise((res) => {
+        res({newUser });
+    });
 }

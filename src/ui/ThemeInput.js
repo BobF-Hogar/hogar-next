@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
-import { selectTheme } from "../redux/theme";
+import { themeSelectors } from "../redux/theme";
 import applyTheme from "../util/theme";
 
 // Themed text input - type may be overridden for email, password, etc.
 function ThemeInput(props) {
     const { children, className, style, onChange, ...rest } = props;
 
-    const theme = useSelector(selectTheme);
+    const theme = useSelector(themeSelectors.theme);
 
     const [ value, setValue ] = useState(props.defaultValue || "");
 

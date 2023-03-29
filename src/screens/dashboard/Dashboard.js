@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import localize from "../../localization";
 import applyTheme from "../../util/theme";
 
-import { selectTheme } from "../../redux/theme";
+import { themeSelectors } from "../../redux/theme";
 
 import ThemePanel from "../../ui/ThemePanel";
 import StatusBar from "./components/StatusBar";
@@ -13,7 +13,7 @@ import FavoriteDevices from "./components/FavoriteDevices";
 import "./Dashboard.css";
 
 function Dashboard() {
-    const theme = useSelector(selectTheme);
+    const theme = useSelector(themeSelectors.theme);
 
     useEffect(() => {
         document.title = localize("APP_TITLE");

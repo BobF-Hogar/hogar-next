@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import { clearModal } from "../../../redux/modal";
+import { modalActions } from "../../../redux/modal";
 
 import ThemeButton from "../../../ui/ThemeButton";
 import ThemePanel from "../../../ui/ThemePanel";
@@ -11,7 +11,7 @@ function ModalSavePWA() {
     const dispatch = useDispatch();
 
     const killMe = () => {
-        dispatch(clearModal());
+        dispatch(modalActions.clear());
     }
 
     return <ThemePanel id="modal-save-pwa">

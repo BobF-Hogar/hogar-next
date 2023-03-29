@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
-import { selectTheme } from "../redux/theme";
+import { themeSelectors } from "../redux/theme";
 import applyTheme from "../util/theme";
 
 function ThemeCheckbox(props) {
     const { className, defaultValue, style, onChange, ...rest } = props;
 
-    const theme = useSelector(selectTheme);
+    const theme = useSelector(themeSelectors.theme);
 
     const [ checked, setChecked ] = useState(!!defaultValue);
 

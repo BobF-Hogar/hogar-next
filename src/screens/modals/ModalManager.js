@@ -1,6 +1,6 @@
 import React, { useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { selectModal, clearModal } from "../../redux/modal";
+import { modalActions, modalSelectors } from "../../redux/modal";
 
 import modalList from ".";
 
@@ -22,14 +22,14 @@ function isChild(checkNode, matchNode) {
 
 function ModalManager() {
     const backgroundRef = useRef(null);
-    const modalType = useSelector(selectModal).type;
+    const modalType = useSelector(modalSelectors.type);
     const dispatch = useDispatch();
 
     const ModalComponent = modalList[modalType]?.component;
 
     const shouldClearModal = (e) => {
         if ((!isChild(e.target, backgroundRef.current)) && (!ModalComponent.noCancel)) {
-            dispatch(clearModal());
+            dispatch(modalActions.clear());
         }
     }
     
