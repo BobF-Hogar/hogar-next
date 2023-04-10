@@ -1,0 +1,3 @@
+.settingList .settingGroup + .settingGroup {
+    margin-top: 16px;
+}

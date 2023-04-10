@@ -5,10 +5,10 @@ import localize from "../../../localization";
 import { authActions } from "../../../redux/auth";
 import { weatherActions } from "../../../redux/weather"; // TODO - Test code
 
-import ThemePanel from "../../../ui/ThemePanel";
-import ThemeInput from "../../../ui/ThemeInput";
-import ThemeCheckbox from "../../../ui/ThemeCheckbox";
-import ThemeButton from "../../../ui/ThemeButton";
+import ThemePanel from "../../../ui/themed/ThemePanel";
+import ThemeInput from "../../../ui/themed/ThemeInput";
+import ThemeCheckbox from "../../../ui/themed/ThemeCheckbox";
+import ThemeButton from "../../../ui/themed/ThemeButton";
 
 import "./LoginForm.css";
 

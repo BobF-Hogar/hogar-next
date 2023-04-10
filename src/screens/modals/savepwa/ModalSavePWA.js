@@ -2,8 +2,8 @@ import React from "react";
 import { useDispatch } from "react-redux";
 import { modalActions } from "../../../redux/modal";
 
-import ThemeButton from "../../../ui/ThemeButton";
-import ThemePanel from "../../../ui/ThemePanel";
+import ThemeButton from "../../../ui/themed/ThemeButton";
+import ThemePanel from "../../../ui/themed/ThemePanel";
 
 import "./ModalSavePWA.css";
 

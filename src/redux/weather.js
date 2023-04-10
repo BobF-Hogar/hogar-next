@@ -53,9 +53,9 @@ listener.startListening({
             
                 getWeatherFromLocation(location, language).then((result) => {
                     if (result?.main) {
-                        listenerApi(weatherActions.weatherReceived(result));
+                        listenerApi.dispatch(weatherActions.weatherReceived(result));
                     } else {
-                        listenerApi(weatherActions.weatherReceived());
+                        listenerApi.dispatch(weatherActions.weatherReceived());
                     }
                 });
             } else {
@@ -64,9 +64,9 @@ listener.startListening({
                 if (location) {
                     getWeatherFromLocation(location.coords, language).then((result) => {
                         if (result?.main) {
-                            listenerApi(weatherActions.weatherReceived(result));
+                            listenerApi.dispatch(weatherActions.weatherReceived(result));
                         } else {
-                            listenerApi(weatherActions.weatherReceived());
+                            listenerApi.dispatch(weatherActions.weatherReceived());
                         }
                     });
                 } else {
@@ -74,9 +74,9 @@ listener.startListening({
                         // console.log('listenerGetWeather-------->', res)
 
                         if (result?.main) {
-                            listenerApi(weatherActions.weatherReceived(result));
+                            listenerApi.dispatch(weatherActions.weatherReceived(result));
                         } else {
-                            listenerApi(weatherActions.weatherReceived());
+                            listenerApi.dispatch(weatherActions.weatherReceived());
                         }
                     });
                 }

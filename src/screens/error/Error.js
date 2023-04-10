@@ -2,8 +2,8 @@ import React from "react";
 import { useNavigate, useRouteError } from "react-router-dom";
 import localize from "../../localization";
 
-import ThemePanel from "../../ui/ThemePanel";
-import ThemeButton from "../../ui/ThemeButton";
+import ThemePanel from "../../ui/themed/ThemePanel";
+import ThemeButton from "../../ui/themed/ThemeButton";
 
 import "./Error.css";
 

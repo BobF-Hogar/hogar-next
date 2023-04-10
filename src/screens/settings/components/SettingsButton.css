@@ -1,0 +1,28 @@
+.settingsButton {
+    align-items: center;
+    cursor: default;
+    display: flex;
+    justify-content: space-between;
+    transition: background-color 0.1s ease-in-out, color 0.1s ease-in-out, filter 0.1s ease-in-out, font-weight 0.1s ease-in-out;
+    user-select: none;
+    white-space: nowrap;
+    width: calc(100% - 32px);
+}
+
+.settingsButton.expandable {
+    cursor: pointer;
+}
+
+.settingsButton.expandable:hover {
+    filter: brightness(1.5);
+    font-weight: bold;
+}
+
+.settingsButton + .settingsButton {
+    margin-top: 4px;
+}
+
+.settingsButton > div:last-child {
+    position: relative;
+    right: -4px;
+}

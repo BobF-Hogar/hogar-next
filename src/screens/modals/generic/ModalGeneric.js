@@ -2,8 +2,8 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { modalActions, modalSelectors } from "../../../redux/modal";
 
-import ThemeButton from "../../../ui/ThemeButton";
-import ThemePanel from "../../../ui/ThemePanel";
+import ThemeButton from "../../../ui/themed/ThemeButton";
+import ThemePanel from "../../../ui/themed/ThemePanel";
 
 function generateTextMarkup(text, index = null) {
     const split = text.split(":");

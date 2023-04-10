@@ -5,7 +5,7 @@ import applyTheme from "../../util/theme";
 
 import { themeSelectors } from "../../redux/theme";
 
-import ThemePanel from "../../ui/ThemePanel";
+// import ThemePanel from "../../ui/themed/ThemePanel";
 import StatusBar from "./components/StatusBar";
 import FavoriteScenes from "./components/FavoriteScenes";
 import FavoriteDevices from "./components/FavoriteDevices";

@@ -1,6 +1,8 @@
 const dictionary = {
     APP_TITLE: "Hogar Next",
     APP_PAGE_LOGIN: "{{APP_TITLE}} - {{SCREEN_LOGIN}}",
+    LABEL_DISABLE: "Disable",
+    LABEL_ENABLE: "Enable",
     LABEL_EMAIL: "Email",
     LABEL_ERROR: "An error has occurred",
     LABEL_PASSWORD: "Password",

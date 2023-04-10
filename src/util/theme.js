@@ -20,11 +20,11 @@ const themePresets = {
             backgroundColor: "white",
             color: "black",
         },
-        navButton: {
+        insetButton: {
             backgroundColor: "black",
             color: "white",
         },
-        navButtonSelected: {
+        insetButtonSelected: {
             color: "white",
             fontWeight: "bold",
             pointerEvents: "none",
@@ -32,6 +32,15 @@ const themePresets = {
         panel: {
             backgroundColor: "#202020",
             color: "white",
+        },
+        toggleActive: {
+            backgroundImage: "linear-gradient(#808080, #a0a0a0)",
+        },
+        toggleInactive: {
+            backgroundImage: "linear-gradient(#303030, #404040)",
+        },
+        togglePin: {
+            backgroundColor: "white",
         },
         topLevelText: {
             color: "white",

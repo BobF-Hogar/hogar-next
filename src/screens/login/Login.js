@@ -7,7 +7,7 @@ import modalList from "../modals";
 import { modalActions } from "../../redux/modal";
 
 import LoginForm from "./components/LoginForm";
-import ThemeButton from "../../ui/ThemeButton";
+import ThemeButton from "../../ui/themed/ThemeButton";
 
 import "./Login.css";
 

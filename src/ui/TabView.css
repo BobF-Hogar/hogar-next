@@ -1,0 +1,37 @@
+.tabView {
+    max-width: fit-content;
+    min-width: 0;
+    overflow-x: auto;
+}
+
+.tabContainer {
+    display: flex;
+    gap: 40px;
+}
+
+.tabContainer > div {    
+    position: relative;
+    width: 300px;
+}
+
+.tabContainer > div + div::before {
+    content: '';
+    background-color: rgba(0, 0, 0, 0.5);
+    bottom: 0;
+    left: -20px;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    width: 1px;
+}
+
+.tabContainer > div > h4 {
+    font-weight: normal;
+    margin-left: 8px;
+    margin-bottom: 4px;
+    opacity: 0.5;
+}
+
+.tabbedContainer {
+
+}

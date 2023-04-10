@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
-import { themeSelectors } from "../redux/theme";
-import applyTheme from "../util/theme";
+import { themeSelectors } from "../../redux/theme";
+import applyTheme from "../../util/theme";
 
 function ThemeCheckbox(props) {
     const { className, defaultValue, style, onChange, ...rest } = props;

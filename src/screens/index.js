@@ -1,4 +1,5 @@
 import Dashboard from "./dashboard/Dashboard"
+import Settings from "./settings/Settings";
 
 export const screens = [
     {
@@ -24,6 +25,6 @@ export const screens = [
     {
         name: "SCREEN_SETTINGS",
         path: "/settings",
-        element: <div>TODO: Settings</div>,
+        element: <Settings />,
     },
 ];

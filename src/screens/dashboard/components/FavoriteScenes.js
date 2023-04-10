@@ -1,6 +1,6 @@
 import React from "react";
 
-import ThemePanel from "../../../ui/ThemePanel";
+import ThemePanel from "../../../ui/themed/ThemePanel";
 
 function FavoriteScenes() {
     return <>

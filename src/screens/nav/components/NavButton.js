@@ -26,7 +26,7 @@ function NavButton(props) {
         className="nav-button"
     >
         <Link to={path}
-            style={applyTheme({}, theme, matchPath(path) ? "navButtonSelected" : "navButton")}
+            style={applyTheme({}, theme, matchPath(path) ? "insetButtonSelected" : "insetButton")}
         >
             <span>{name}</span>
         </Link>
