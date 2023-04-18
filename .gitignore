@@ -23,5 +23,5 @@ yarn-debug.log*
 yarn-error.log*
 
 # custom
-api_info.js
-api_key.js
+api_info.ts
+api_key.ts

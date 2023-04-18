@@ -1,6 +1,6 @@
 # API Info
 
-The `api_info.js` file is not included in the repository due to including sensitive information.
+The `api_info.ts` file is not included in the repository due to including sensitive information.
 
 This file needs to export two functions:
 1. `getApiKey` which returns the relevant key.
